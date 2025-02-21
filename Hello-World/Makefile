@@ -1,4 +1,5 @@
 .PHONY: run
 
 run:
-	@./hello.sh
+	@./aj_helloworld.sh
+	@./ey_helloworld.sh
