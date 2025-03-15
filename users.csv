@@ -1,0 +1,201 @@
+UserID,Name,Email,Phone,Address,AccountCreated,CreditScore,TypicalSpendingPattern,AverageTransactionAmount
+user_2f21a86b,Kara Ross,cynthiataylor@example.net,703-740-3608x1002,"3745 Teresa Gateway
+Lake Jerryton, TX 90968",2025-02-28T02:53:21.933917,771,Low,473.08
+user_291acdd5,Kathryn Petty,desireedaugherty@example.com,001-214-770-0075,"726 Bryant Street
+Ricardoburgh, MS 83469",2025-02-18T06:39:47.053782,768,Medium,455.94
+user_187e4ced,Melissa Hughes,manuel19@example.org,746.211.0739,"03661 Taylor Place
+Lake Lisachester, SD 69825",2025-01-11T02:19:46.663202,685,Medium,181.03
+user_fb2e6c9d,Stephen West,vmartinez@example.net,838.348.7297x4485,"892 Guerra Harbor
+Garciabury, GU 73869",2025-01-26T12:19:57.235584,602,Low,480.09
+user_a7341d7d,Randy Weber,calderonkevin@example.net,948-747-3994,"582 Johnson Mountain Apt. 838
+Kentside, FL 58210",2025-03-11T10:58:03.620107,343,Low,124.09
+user_d56717a1,Christopher Rodriguez,ucalhoun@example.com,(780)720-1624,"5170 Cunningham Knoll Apt. 758
+Wallaceland, VT 02896",2025-02-22T23:17:39.448467,454,Medium,77.44
+user_9837e59c,Joseph Morales,brandonbennett@example.net,802-236-5800x15538,"055 Nichols Greens
+Adamside, NE 97474",2025-02-26T01:57:18.110833,341,Low,29.48
+user_4f98a4d4,Rebecca Cook,tony81@example.org,+1-956-539-0303x741,"0317 Griffin Plain
+Morgantown, MD 21170",2025-02-14T17:28:05.362954,597,High,97.2
+user_af91ffbf,Kenneth Perez,burnettalexandra@example.net,+1-214-603-1307x951,"693 William Drives
+Cohenstad, AK 32066",2025-03-14T04:02:04.729877,512,High,152.33
+user_2f2a43ac,Lori Schultz,ruizjacqueline@example.org,+1-590-439-0375x6790,"069 Todd Crossing
+Rachelfort, RI 87928",2025-03-02T13:28:15.848504,454,Low,115.88
+user_64e2a309,Beth Smith,travis27@example.com,+1-772-767-1325,"3446 White Course
+Griffithton, VT 02544",2025-02-15T07:27:59.901257,783,Medium,435.45
+user_773ddb25,Jessica Hawkins,kelly26@example.net,268.745.8008x345,"75152 Williams Inlet Suite 051
+Bellville, IN 50909",2025-02-06T19:46:07.349987,323,High,259.63
+user_b178012e,Holly Burns,dennisdelgado@example.org,001-397-605-3413x74660,"7955 Maddox Extension
+Stephenborough, NV 59616",2025-01-29T13:04:41.852462,523,Medium,222.5
+user_52a4e890,Cassandra Garcia,michael79@example.com,573-591-5480x286,"31785 Anthony Alley Suite 144
+Troyland, MI 56044",2025-03-03T02:04:46.374729,563,Low,420.03
+user_7eb94c7f,Austin Marshall,anthonyglover@example.net,+1-378-809-0412x2973,"1105 Hill Trafficway
+South Stephanie, IL 40903",2025-01-16T05:10:50.759612,654,Low,103.01
+user_35533990,Jacqueline Foster,aaron75@example.com,501-400-5370x545,"1000 Sean Greens Apt. 194
+Lake Cindyburgh, WI 52110",2025-01-17T19:47:16.798113,373,High,453.66
+user_c71ff956,Thomas Burnett,smithrobert@example.net,+1-227-752-9698x40954,"2420 Aguilar Circle
+Mitchellton, NE 39399",2025-01-03T13:57:47.549840,577,High,490.92
+user_4420a8bc,Alexander Mathis,elane@example.org,6487547840,"88968 Samantha Crossing
+Port Ginastad, MH 93559",2025-02-16T22:33:38.384099,487,Low,250.18
+user_ac51c1ad,David Moran,herreratara@example.org,713.473.4999x809,"11949 Curtis Place Suite 176
+Lake Jamie, NC 12996",2025-03-09T22:15:19.272555,503,Medium,335.06
+user_0591101e,Ashley Miller,josephalvarez@example.net,366-452-8056x5544,"51595 Sharon Hollow
+Coreyside, OK 70131",2025-01-13T22:42:45.907852,726,High,266.7
+user_bcfc3c6e,Gregory Lopez,karajones@example.net,665-220-3910x1933,"4489 Garrison Crescent
+Randolphville, MT 47354",2025-01-04T08:36:41.563836,752,Medium,293.44
+user_b435372d,Nathaniel Torres,carneyseth@example.com,800-953-1511x401,"842 Daniel Mews Apt. 715
+Grantshire, VA 51014",2025-01-26T15:23:23.890982,706,High,456.07
+user_7dde70f5,Shawn Miller,flewis@example.com,001-973-961-2525,"39298 Hess Circle Apt. 441
+Angelaborough, NC 17006",2025-01-09T03:28:58.009243,828,Low,76.94
+user_a640ea69,Jeremiah Ewing,maguilar@example.org,340-416-4329,"492 Kimberly Meadows Apt. 811
+Coltonbury, IN 31534",2025-02-06T21:20:38.341468,794,High,265.41
+user_dd305fbb,Lisa Garner MD,hliu@example.com,374-950-7610x39242,"8786 William Rapids Apt. 224
+Sparksville, GA 53472",2025-01-05T18:53:12.584034,314,Medium,44.03
+user_62c89539,Wendy Fuentes,lmiller@example.org,679.643.9856x1566,"2645 Pennington Coves
+Jimmymouth, MT 19751",2025-01-17T13:58:38.751615,748,Medium,241.18
+user_4bbb6878,Brittany Rivera,tleonard@example.org,+1-207-311-8176x9711,"0001 Scott Point
+South Becky, GU 25513",2025-03-01T20:45:31.497107,308,Medium,329.9
+user_cd5ef941,Annette Yang,mark75@example.net,800-954-8242x2663,"8292 Timothy Orchard
+Port Stephaniefort, ND 32161",2025-03-05T02:28:24.701264,456,High,463.56
+user_6e547863,Michelle Green,hgillespie@example.org,(878)458-7117x773,"5067 Castro Stravenue
+Lake Samantha, VI 29865",2025-01-25T18:27:31.675659,797,Low,111.28
+user_295abf0c,Christopher Gonzalez,tiffanydavis@example.org,001-319-442-2355,"96001 Johnson Spur Suite 163
+Jennifermouth, KS 19080",2025-03-11T04:57:15.456778,650,Low,408.36
+user_a1ba7f0c,Mandy Jones,johnpham@example.net,(996)210-6282x23110,"7170 Blake Overpass
+North Linda, MT 93425",2025-03-08T22:48:04.940601,521,Medium,150.24
+user_f4c8a439,Kimberly Turner,mariekelly@example.com,552-249-4370x094,"PSC 9842, Box 7853
+APO AA 51513",2025-03-13T10:24:37.030166,701,Low,181.63
+user_3f19585a,Andrew Erickson,gilbertcolleen@example.com,001-608-477-5332x6272,"7567 Yolanda Mission
+East Jon, MO 39029",2025-02-18T09:51:03.242600,394,High,453.17
+user_d9dff529,Travis Gonzales,blee@example.org,+1-380-424-6446x2309,"1564 Jessica Branch
+Smithmouth, FM 43101",2025-02-13T06:54:55.201725,439,High,292.88
+user_851fbd38,Katie Smith,calvin14@example.com,833.753.9634,"85335 Jason Prairie
+New Haroldshire, FM 14042",2025-02-10T15:17:21.415966,643,Low,57.35
+user_db5646e6,Elizabeth Griffin DDS,sweeks@example.org,001-561-618-1599x6709,"77220 Cory Falls Apt. 311
+East Teresa, ID 86783",2025-01-11T10:48:23.555178,470,Medium,80.12
+user_c947ef51,Peter Smith,xdalton@example.net,(662)331-5105,"999 Melissa Roads
+Nicolehaven, WV 24378",2025-02-18T09:19:22.308401,509,High,193.47
+user_018e5a70,Tracy Robinson,amoore@example.net,+1-321-837-0043x0992,"535 Mary Falls
+Jeffreyton, OH 50246",2025-03-01T05:03:40.811098,525,High,429.0
+user_ac35853f,Ian Jones,mpeterson@example.com,857.785.7260,"5824 Humphrey Dam Apt. 559
+Bradleytown, TN 11602",2025-03-06T11:54:18.553424,366,Medium,428.33
+user_0ee95223,Lawrence Mcgrath,dukedavid@example.net,201-210-9493x926,"7563 Johnson Wells Apt. 194
+Sharonstad, AK 09917",2025-02-19T05:36:23.752046,547,High,467.22
+user_7e98129d,Zoe Stephens,amberrodriguez@example.net,(687)280-8819x03045,"48240 Bartlett Mission
+Brewerhaven, DC 84558",2025-01-20T15:44:54.081926,451,Low,364.08
+user_221d3802,Douglas Armstrong,christopher93@example.net,(455)723-5441x075,"952 Rodney Extension Apt. 747
+South Jaimehaven, MH 03716",2025-02-01T11:06:58.003835,478,Medium,391.67
+user_9cae07e1,John Thompson,stonemitchell@example.org,644-842-3937x200,"79832 Young Orchard Apt. 258
+West Jeffrey, CT 31138",2025-02-04T12:37:13.486743,599,Low,33.67
+user_2fa53826,Joshua Werner,brownwilliam@example.com,(533)298-6767x787,"727 Travis Gateway
+Abigailfort, WI 98619",2025-03-11T13:46:45.618106,690,Medium,80.27
+user_8e74b703,Robert Strickland,alfredbutler@example.org,261-613-1588x23214,"5348 Douglas Park
+Fowlertown, WV 84569",2025-03-13T22:25:01.212433,816,Medium,333.79
+user_e81a635b,Kimberly Lucas,nicolebarrett@example.net,301.716.5719x980,"85786 Michael Union Suite 693
+Donaldmouth, LA 64407",2025-03-10T04:55:47.041147,666,Medium,106.75
+user_1effbdca,Michael Wu,rodriguezblake@example.net,234-203-1195,"092 Brown Junction
+New Teresafurt, NC 91392",2025-02-23T03:22:57.606982,769,Low,157.81
+user_33d6aa45,Eric Johnson,morrisonwilliam@example.net,+1-775-374-5257x39138,"941 Hamilton Forges Apt. 522
+Luismouth, GU 29277",2025-01-06T16:57:35.794604,735,Low,354.08
+user_97cca8c8,Zachary Beard,wrivera@example.com,001-596-990-4035x052,"330 Jennifer Village Suite 195
+Patrickland, AR 16503",2025-01-15T07:56:41.801989,340,Medium,234.27
+user_0c9ba5cc,Mary Barnett,kimberlyrogers@example.com,+1-565-392-0196x6254,"90734 Payne Expressway
+West Elizabethside, MT 33435",2025-02-06T03:47:38.565110,309,Low,420.79
+user_f4abe7ac,Evan Collins,andersonshannon@example.net,001-340-584-0871x232,"59887 Eric Station Apt. 081
+Gregoryberg, MT 68801",2025-03-04T09:53:12.635640,432,Low,17.38
+user_08118e89,Jennifer Mcmillan,tdunlap@example.net,001-615-546-6937x5300,"1246 Schwartz Stream Suite 852
+Heathertown, NV 08785",2025-02-23T19:47:10.378216,533,Low,48.66
+user_dda5d572,Kendra Burgess,uroach@example.net,335.671.9802,"04050 Cristina Underpass Suite 250
+Obrienshire, MD 71296",2025-01-30T17:25:57.274068,696,Medium,403.82
+user_dc1f0afd,Mitchell Cook,ndavis@example.org,001-478-263-4036x68409,"8462 Wilkinson Radial Apt. 084
+Lake Pamelaborough, OH 68469",2025-02-10T13:58:29.101100,652,High,349.73
+user_a4ccf4d8,Desiree Shaw,pklein@example.net,223-251-7746x77256,"435 Scott Lane Apt. 084
+Chelseaberg, CT 01017",2025-02-20T04:47:24.175646,805,Medium,411.5
+user_1982dae2,John Hale,ianthony@example.net,389-704-3576x024,"30213 Nathaniel Plaza Apt. 180
+West Kyle, TN 20314",2025-02-21T22:46:21.503005,662,High,268.65
+user_da1b5386,Patrick Lewis,joannahamilton@example.net,001-401-966-8252x82408,"05985 Chad Cliffs
+Dorseyshire, AS 87290",2025-01-09T05:29:50.461893,840,Medium,269.66
+user_4b6ab3b0,Robert Gardner,jonathan22@example.net,001-868-234-4223x8141,"868 Campbell Burgs Apt. 907
+Mendezview, MP 66586",2025-02-09T12:55:37.592856,532,High,276.2
+user_88f45892,Jordan Bass,natashabarnes@example.org,+1-922-993-7316x735,"USNS Morris
+FPO AA 05737",2025-03-06T09:35:33.339203,849,Low,124.42
+user_ee31df6d,Keith Stevens,dbrown@example.org,418-211-2821,"USS Gonzales
+FPO AA 83595",2025-02-17T17:08:53.921564,798,High,75.68
+user_f58ff54e,Brad Taylor,cgregory@example.org,001-547-248-0710x161,"68786 Butler Mountains Suite 622
+South Deanna, MO 57658",2025-01-25T23:13:43.407654,523,Medium,381.45
+user_d28bbfc0,Kaylee Lyons,kherrera@example.org,886.879.9246,"813 Fisher Mission Apt. 690
+Port Justinville, HI 49397",2025-01-25T18:49:25.686940,707,High,315.18
+user_18478c65,Shawn Jones,heatherchase@example.org,752-404-4728,"297 Williamson Ports Suite 359
+North Andrew, KY 42634",2025-03-13T08:37:58.290438,845,Medium,376.09
+user_3574f86d,Natalie Gardner,grantkristi@example.org,+1-562-898-9785x12573,"42300 Penny Highway Suite 453
+West Davidside, TN 62775",2025-03-01T15:05:37.396183,544,Low,115.31
+user_3ebe5bf9,Colleen Hart,riosbrian@example.net,001-259-591-0360x615,"16332 Rebecca Isle
+Christopherview, MN 44761",2025-01-17T19:32:48.708179,533,Medium,400.73
+user_e200ac49,Cynthia King,donaldwilliams@example.com,900.986.5853x3797,"PSC 1784, Box 2336
+APO AE 21272",2025-02-06T02:58:32.234625,334,High,452.96
+user_40903e99,Dylan Baker,xmaxwell@example.com,634.446.2614x7955,"967 Taylor Via Suite 234
+Fullermouth, KY 61682",2025-03-14T17:45:23.638298,386,Medium,57.92
+user_776707b1,Andrea Orozco,matthew79@example.com,(351)746-7606x71911,"2654 Knapp Stream Suite 165
+Erintown, PR 51966",2025-02-05T13:58:01.912746,835,High,320.84
+user_6cde2d2f,Neil Flowers,marissa57@example.org,654-242-2011x8134,"467 Baker Fields Apt. 078
+West Stevenbury, MP 35335",2025-01-05T11:16:55.452213,700,Medium,387.78
+user_70394c3a,Nancy Mcdaniel,claudiawilliams@example.org,471-661-7694x68627,"996 Zamora Rapids
+South Donnashire, NV 66426",2025-01-19T02:55:41.755114,350,Medium,488.08
+user_f0de8434,Isaac Johnson,amcdaniel@example.org,223-703-2717x06286,"7422 Martin Extension
+Pattersonville, OK 73808",2025-03-08T00:43:08.827167,572,Medium,304.32
+user_c56bf3e8,Paul Ramirez,harrisanna@example.net,6056030691,"33798 White Rue
+Perezfort, MS 04591",2025-02-20T06:16:50.557707,595,Medium,229.8
+user_bcc942f4,Sue Roy,jacob33@example.net,001-255-841-4886x127,"0047 Christopher Lakes
+Shaunmouth, WA 48172",2025-02-14T16:44:45.009667,326,Low,478.32
+user_5d478820,Douglas Montgomery,tvaughn@example.net,(985)623-5944,"USNV Lucas
+FPO AP 24527",2025-02-21T18:42:39.166882,743,Low,78.81
+user_c2799675,Mark Kelly,joseph63@example.com,6363969671,"297 Montgomery Wells
+West Sherryview, LA 10719",2025-03-01T20:20:57.001011,764,High,97.71
+user_065d08cc,Scott Wilson,udodson@example.org,(426)778-8746x36612,"612 Allison Curve
+Lisaville, NH 98755",2025-01-02T03:55:47.312147,383,Medium,175.55
+user_57993fed,Mark Peterson,alexanderknox@example.org,296-947-1779x61590,"834 Martinez Causeway
+Simonborough, IA 61419",2025-01-04T03:12:56.144934,553,Medium,61.79
+user_c1227da3,Jill Hahn,jacobrichardson@example.net,221.288.6530x25783,"731 Johnson Skyway
+West Michael, PW 83267",2025-01-19T02:44:38.893921,728,Medium,186.41
+user_e6ef24f5,James Parker,cameron56@example.org,(522)517-3683x39259,"443 Brown View
+Brianfurt, DC 11844",2025-02-06T08:25:54.587364,606,High,295.25
+user_f497f296,Thomas Garcia,michelewheeler@example.org,001-664-667-3991,"790 Schmitt Ford Apt. 912
+New Jamesmouth, KY 88140",2025-02-28T05:27:24.317156,581,Low,215.06
+user_4c3ba68e,Nancy Jones,alexwaters@example.com,416.324.4313,"62870 Black Throughway Suite 148
+North Michael, IA 10547",2025-01-12T12:17:06.770143,827,High,242.59
+user_2e7182e2,Jason Green,michellecampbell@example.org,(429)386-8023x15428,"5512 Glen Valleys Suite 384
+North Deanna, AZ 67301",2025-01-27T18:11:56.617463,515,Low,15.72
+user_8063b83c,Ronald Clark,sheri13@example.com,262.759.0577x9322,"720 Alexis Ports
+New Reneetown, IA 59895",2025-02-05T19:57:51.760344,662,High,442.54
+user_39307a8d,Peter Richards,nrivera@example.org,(940)691-3329x389,"4023 Michelle Field Suite 411
+Garciamouth, PA 61347",2025-01-27T03:49:59.768721,676,Medium,78.56
+user_5fab2704,Jessica Fields,jamesgutierrez@example.org,(827)967-0832,"865 Susan River Apt. 033
+Cynthiamouth, WA 80057",2025-02-08T02:51:14.576669,654,Medium,464.19
+user_29ac6a87,Amber Edwards,laura23@example.com,888.409.3952x53108,"0607 Conway Summit Suite 747
+West Dan, MS 39948",2025-02-12T05:43:12.309518,786,High,441.86
+user_2107010c,Zachary Duran,hjenkins@example.org,9366728353,"969 Phillips Route Suite 239
+Manuelhaven, GA 07899",2025-03-09T21:48:57.829121,521,Medium,405.17
+user_f2685de0,Ebony Vazquez,walter74@example.net,275.863.7768,"6863 James Radial Apt. 886
+Spearsburgh, KY 17734",2025-02-20T22:42:19.838337,818,High,296.29
+user_b9127240,Anthony Garcia,schneiderdanielle@example.net,263-432-2067,"200 Kristin Drives Apt. 435
+Taylorton, WI 98162",2025-01-04T02:19:26.072692,527,Low,205.81
+user_9e277382,Jeremy Baker,kmelton@example.com,2024927486,"29630 Wright Square Apt. 743
+East Tonyfurt, CT 77118",2025-02-13T08:32:24.517892,840,Medium,41.09
+user_6aed1b5e,Samantha Munoz,williamskyle@example.net,583.307.4911x1415,"Unit 3406 Box 9213
+DPO AA 47396",2025-02-26T07:56:25.222178,307,Low,111.69
+user_4f9219f6,Kimberly Becker,amandascott@example.com,(216)275-5574,"1720 Sabrina Forest Suite 763
+Melissaview, WA 08917",2025-01-11T06:44:49.795411,357,High,429.93
+user_f8723205,Nicole Ramirez,morganjoseph@example.org,7655003577,"3598 Mary Ridge
+East Hayleyville, MI 27908",2025-01-24T15:18:32.596503,530,Medium,229.23
+user_189bf4db,Jennifer Cole,vegajoseph@example.net,949-211-2010,"113 Rivera Turnpike
+Port Elizabethport, ME 95423",2025-01-06T16:50:35.862217,386,Medium,484.08
+user_83022634,Amy Knapp,ekent@example.org,775-912-0049x77346,"94343 Jackson Drives
+Patriciatown, DC 12334",2025-02-23T02:46:37.781904,736,Medium,134.82
+user_d8f80281,William Cabrera MD,daniel15@example.org,957-323-2279,"89168 Jeffery Circles
+Robinsonton, NV 28691",2025-01-04T05:42:45.949298,372,Medium,350.19
+user_e40188ff,Jessica Coleman,qcarey@example.com,(579)668-8650,"23190 John Viaduct
+Dakotafort, WV 22923",2025-02-07T04:20:33.088962,515,Medium,494.45
+user_dfde6d9b,Anthony Sellers,luisliu@example.com,488-331-0874x3410,"41192 Lawrence Haven
+New Brianbury, CA 61081",2025-01-07T19:24:12.918705,444,Low,142.74
+user_58ab69dc,Richard Thompson,mcbriderobert@example.net,948.732.1787x766,"2369 Stanley Course
+New Jasonberg, SD 21045",2025-01-21T20:00:53.546655,337,Medium,143.48
+user_9843f207,Grant Ward,joseph56@example.net,354.929.9473,"537 Larson Road
+West Michaelfurt, KY 11378",2025-03-14T05:54:51.225860,314,Medium,92.66
