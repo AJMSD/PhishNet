@@ -79,6 +79,7 @@ def generate_transaction():
         'Merchant': selected_merchant,
         'Category': random.choice(["Shopping", "Food", "Travel", "Entertainment", "Utilities", "Other"]),
         'PaymentMethod': random.choice(["Credit Card", "Debit Card", "Mobile Payment", "Online"]),
+        'Location': location,
         'RiskScore': Decimal(str(fraud_risk)),  # Store fraud weight in DynamoDB
         'Status': "Pending"
     }

@@ -53,6 +53,9 @@ def lambda_handler(event, context):
         user_id = transaction.get('UserID', 'Unknown')
         flagged_as_fraud = False
 
+        location_risk_score = check_location_risk(location)
+        amount_risk_score = check_amount_risk(amount)
+
         fraud_score = (fraud_risk * 100) + amount_risk_score + location_risk_score
         print(f"Transaction {transaction_id} fraud score: {fraud_score}")
 
@@ -72,6 +75,20 @@ def lambda_handler(event, context):
             send_fraud_alert(transaction_id, amount, user_id)
 
     return {"statusCode": 200, "body": "Processing complete"}
+
+def check_location_risk(location):
+    high_risk_locations = ["Dubai", "Tokyo", "London"]
+    if location in high_risk_locations:
+        return 30
+    return 0
+
+def check_amount_risk(amount):
+    if amount > 3000:
+        return 40
+    elif amount > 1000:
+        return 20
+    else:
+        return 0
 
 def update_transaction_status(transaction_id, status):
     """Update the transaction status in DynamoDB"""
