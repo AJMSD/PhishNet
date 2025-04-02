@@ -54,6 +54,27 @@ def lambda_handler(event, context):
         user_id = transaction.get('UserID', 'Unknown')
         flagged_as_fraud = False
 
+        location_risk_score = check_location_risk(location)
+        amount_risk_score = check_amount_risk(amount)
+
+
+
+        try:
+            user_response = users_table.get_item(Key={'UserID': user_id})
+            user_info = user_response.get('Item', {})
+            travel_mode = user_info.get('TravelMode', False)
+            trusted_location = user_info.get('TrustedLocations', {})
+        except Exception as e:
+            print(f"Error fetching user info for {user_id}: {e}")
+            travel_mode = False
+            trusted_location = []
+
+
+        location_risk_score = check_location_risk(location, travel_mode, trusted_location)
+
+
+        amount_risk_score = check_amount_risk(amount)
+
 
 
         try:
