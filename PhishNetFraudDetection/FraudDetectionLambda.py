@@ -8,6 +8,7 @@ sns = boto3.client('sns')
 
 # Set DynamoDB Table and SNS Topic ARN
 DYNAMODB_TABLE = dynamodb.Table("Transactions")
+users_table = dynamodb.Table("Users")
 SNS_TOPIC_ARN = "arn:aws:sns:us-east-2:842675989308:PhishNetAlerts"
 
 # Email recipient for fraud alerts
@@ -53,7 +54,22 @@ def lambda_handler(event, context):
         user_id = transaction.get('UserID', 'Unknown')
         flagged_as_fraud = False
 
-        location_risk_score = check_location_risk(location)
+
+
+        try:
+            user_response = users_table.get_item(Key={'UserID': user_id})
+            user_info = user_response.get('Item', {})
+            travel_mode = user_info.get('TravelMode', False)
+            trusted_location = user_info.get('TrustedLocations', {})
+        except Exception as e:
+            print(f"Error fetching user info for {user_id}: {e}")
+            travel_mode = False
+            trusted_location = []
+
+
+        location_risk_score = check_location_risk(location, travel_mode, trusted_location)
+
+
         amount_risk_score = check_amount_risk(amount)
 
         fraud_score = (fraud_risk * 100) + amount_risk_score + location_risk_score
@@ -76,11 +92,19 @@ def lambda_handler(event, context):
 
     return {"statusCode": 200, "body": "Processing complete"}
 
-def check_location_risk(location):
+def check_location_risk(location, travel_mode=False, trusted_locations=None):
     high_risk_locations = ["Dubai", "Tokyo", "London"]
+    trusted_locations = trusted_locations or []
+
+    if travel_mode and location in trusted_locations:
+        print(f"{location} is trusted during travel mode — no extra risk applied.")
+        return 0
+
     if location in high_risk_locations:
         return 30
+
     return 0
+
 
 def check_amount_risk(amount):
     if amount > 3000:
