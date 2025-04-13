@@ -43,6 +43,7 @@ def generate_user(event):
         'Created_at': datetime.now().isoformat(),
         'Location': location,
         'Travel Mode': False,  # Automatically disabled
+        'Travel Location': "Tokyo",
         'Status': "Active"
     }
     print(f"DEBUG: User {user} generated")
