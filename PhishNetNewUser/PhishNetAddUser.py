@@ -2,7 +2,6 @@ import json
 import boto3
 import random
 import uuid
-from decimal import Decimal
 from datetime import datetime
 
 # AWS Clients
@@ -11,42 +10,44 @@ dynamodb = boto3.resource('dynamodb')
 # Set DynamoDB Table
 DYNAMODB_TABLE = dynamodb.Table("Users")
 
+# Predefined users
+USER_LIST = [
+    {"First_Name": "Aman", "Last_Name": "Jain", "Phone_Number": "+19495329113"},
+    {"First_Name": "Timothy", "Last_Name": "Jayamohan", "Phone_Number": "+17247595753"},
+    {"First_Name": "Ethan", "Last_Name": "Yang", "Phone_Number": "+16082363352"},
+    {"First_Name": "Summit", "Last_Name": "Koegel", "Phone_Number": "+16086049106"},
+    {"First_Name": "Anirudh", "Last_Name": "Dahiya", "Phone_Number": "+16179134549"}
+]
+
+# Sample locations
+LOCATIONS = ["New York", "Chicago", "Seattle", "San Francisco", "Austin"]
+
 def lambda_handler(event, context):
+    for user_info in USER_LIST:
+        user_data = generate_user(user_info)
+        upload_to_dynamodb(user_data)
+        print(f"User {user_data['User_ID']} uploaded.")
 
-    # Generate a user
-    user_data = generate_user(event)
+    return {"statusCode": 200, "body": "All users uploaded successfully."}
 
-    # Store transaction in DynamoDB
-    upload_to_dynamodb(user_data)
+def generate_user(user_info):
+    """Generate a user record using fixed names and random details"""
+    phone = user_info["Phone_Number"]
+    user_id = phone  # Using phone number as the primary key
+    email = f"{user_info['First_Name'].lower()}.{user_info['Last_Name'].lower()}{random.randint(100,999)}@example.com"
+    location = random.choice(LOCATIONS)
 
-    print(f"User ID {user_data['User_ID']} sent to SQS")
-
-    return {"statusCode": 200, "body": "Works!"}
-
-def generate_user(event):
-    """Generate a single realistic transaction"""
-    # Generate a unique user ID
-    user_id = f"user_{uuid.uuid4().hex[:8]}"
-    first_name = event['First_Name']
-    last_name = event['Last_Name']
-    email = event['Email']
-    phone = event['Phone_Number']
-    location = event['Location']
-    
-    # Create the transaction with all fields
     user = {
         'User_ID': user_id,
-        'First_Name': first_name,
-        'Last_Name': last_name, 
+        'First_Name': user_info['First_Name'],
+        'Last_Name': user_info['Last_Name'], 
         'Email': email,
         'Phone_Number': phone,
         'Created_at': datetime.now().isoformat(),
         'Location': location,
-        'Travel Mode': False,  # Automatically disabled
+        'TravelMode': False,
         'Status': "Active"
     }
-    print(f"DEBUG: User {user} generated")
-    
     return user
 
 def upload_to_dynamodb(user_data):
