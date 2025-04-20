@@ -7,12 +7,12 @@ import datetime
 
 # Connect to your DynamoDB tables
 dynamodb = boto3.resource('dynamodb')
-TEST_TRANSACTIONS_TABLE = dynamodb.Table("TestTransactions")
+TRANSACTIONS_TABLE = dynamodb.Table("TestTransactions")
 TEST_RESULTS_TABLE = dynamodb.Table("TestResults")  # New table to store test results
 
 def lambda_handler(event, context):
-    # Generate test data with known fraud status (100 test transactions)
-    test_data = generate_test_data(100)
+    # Generate test data with known fraud status (50 test transactions)
+    test_data = generate_test_data(10)
     
     # Test results using your rule-based fraud detection algorithm
     rule_based_results = test_rule_based_algorithm(test_data)
@@ -29,11 +29,11 @@ def lambda_handler(event, context):
         })
     }
 
-def store_test_transaction(transaction):
+def store_transaction(transaction):
     """Store a single transaction in the TestTransactions table"""
     try:
-        TEST_TRANSACTIONS_TABLE.put_item(Item=transaction)
-        print(f"Stored transaction {transaction['TransactionID']} in TestTransactions")
+        TRANSACTIONS_TABLE.put_item(Item=transaction)
+        print(f"Stored transaction {transaction['TransactionID']} in Transactions")
     except Exception as e:
         print(f"Error storing transaction {transaction['TransactionID']}: {e}")
 
@@ -43,22 +43,46 @@ def generate_test_data(num_transactions):
     
     # Merchant risk weights from your actual system
     merchant_fraud_weights = {
-        "Amazon": 0.2,
-        "Walmart": 0.15,
-        "Target": 0.2,
-        "Starbucks": 0.1,
-        "McDonald's": 0.1,
-        "Best Buy": 0.3,
-        "Apple Store": 0.25,
-        "Gas Station": 0.25,
-        "Grocery Store": 0.3,
-        "Restaurant": 0.3,
-        "Hotel": 0.5,
-        "Airline": 0.7,
-        "Online Service": 0.55
+        "Amazon": 0.2, "Walmart": 0.15, "Target": 0.2, "Starbucks": 0.1,
+        "McDonald's": 0.1, "Best Buy": 0.3, "Apple Store": 0.25, "Gas Station": 0.25,
+        "Grocery Store": 0.3, "Restaurant": 0.3, "Hotel": 0.5, "Airline": 0.7,
+        "Online Service": 0.55, "Luxury Goods": 0.65, "Electronics Depot": 0.4,
+        "Travel Agency": 0.6, "VIP Lounge": 0.7, "Crypto Exchange": 0.75,
+        "Fine Jewelry": 0.7, "Designer Apparel": 0.6, "Furniture Gallery": 0.5,
+        "High-End Electronics": 0.65, "Digital Subscriptions": 0.35,
+        "Streaming Service": 0.3, "Fitness Club": 0.25, "Spa & Wellness": 0.4,
+        "Boutique Store": 0.45, "Private Clinic": 0.5, "Ride Share": 0.3,
+        "Event Tickets": 0.4, "Car Rental": 0.55, "Tech Startup": 0.5,
+        "Generic Marketplace": 0.6
     }
     
-    locations = ["New York", "Los Angeles", "Chicago", "Miami", "London", "Tokyo", "Dubai"]
+    locations = [
+        "New York", "Los Angeles", "Chicago", "Miami", "London", "Tokyo", "Dubai",
+        "San Francisco", "Boston", "Atlanta", "Dallas", "Houston", "Seattle",
+        "Philadelphia", "Phoenix", "San Diego", "Denver", "Austin", "Orlando",
+        "Las Vegas", "Charlotte", "Detroit", "Minneapolis", "Tampa", "Portland",
+        "Toronto", "Vancouver", "Montreal", "Mexico City", "São Paulo", "Buenos Aires",
+        "Paris", "Berlin", "Amsterdam", "Madrid", "Rome", "Barcelona", "Copenhagen",
+        "Stockholm", "Oslo", "Helsinki", "Zurich", "Vienna", "Moscow", "Istanbul",
+        "Bangkok", "Singapore", "Hong Kong", "Seoul", "Kuala Lumpur", "Jakarta",
+        "Beijing", "Shanghai", "Mumbai", "New Delhi", "Cape Town", "Johannesburg",
+        "Sydney", "Melbourne", "Brisbane", "Auckland", "Wellington"
+    ]
+
+    high_risk_locations = [
+        "London", "Tokyo", "Dubai", "Moscow", "Beijing", "Johannesburg",
+        "Mexico City", "Buenos Aires", "Istanbul", "Lagos"
+    ]
+
+    low_risk_locations = [
+        "New York", "Los Angeles", "Chicago", "Miami", "Dallas", "Houston",
+        "Atlanta", "San Francisco", "Seattle", "Denver", "Phoenix", "San Diego",
+        "Boston", "Minneapolis", "Charlotte", "Philadelphia", "Austin", "Portland",
+        "Las Vegas", "Orlando", "Tampa", "Columbus", "Detroit", "Indianapolis",
+        "Nashville", "Cleveland", "Kansas City", "Milwaukee", "Raleigh", "Pittsburgh",
+        "Cincinnati", "Salt Lake City", "St. Louis", "San Antonio", "Sacramento",
+        "Baltimore", "New Orleans", "Omaha", "Oklahoma City", "Louisville", "Richmond"
+    ]
     
     # Generate both fraudulent and legitimate transactions
     for i in range(num_transactions):
@@ -85,9 +109,9 @@ def generate_test_data(num_transactions):
         
         # Select appropriate location
         if is_fraud and random.random() < 0.7:
-            location = random.choice(["London", "Tokyo", "Dubai"])  # High-risk locations
+            location = random.choice(high_risk_locations)
         else:
-            location = random.choice(["New York", "Los Angeles", "Chicago", "Miami"])
+            location = random.choice(low_risk_locations)
         
         # Create the transaction (convert numeric values to Decimal as needed)
         transaction = {
@@ -105,7 +129,7 @@ def generate_test_data(num_transactions):
         }
         
         # Store the synthetic transaction in the TestTransactions table
-        store_test_transaction(transaction)
+        store_transaction(transaction)
         
         test_data.append(transaction)
     
@@ -129,11 +153,11 @@ def test_rule_based_algorithm(test_data):
         
         # Convert Decimal amount to float for comparisons
         amount_float = float(amount)
-        amount_risk = 40 if amount_float > 3000 else (20 if amount_float > 1000 else 0)
+        amount_risk = 40 if amount_float > 500 else (20 if amount_float > 100 else 0)
         fraud_score = (risk_score * 100) + amount_risk + location_risk
         
         # Determine if transaction is flagged as fraud
-        is_flagged_fraud = fraud_score > 0  # Using your threshold
+        is_flagged_fraud = fraud_score > 80  # Using your threshold
         is_actual_fraud = transaction['IsActualFraud']
         
         # Update counters
@@ -185,4 +209,3 @@ def store_test_results(results):
         print("Test results stored in DynamoDB")
     except Exception as e:
         print(f"Error storing test results: {e}")
-a
