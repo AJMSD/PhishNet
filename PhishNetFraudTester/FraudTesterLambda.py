@@ -11,7 +11,7 @@ TRANSACTIONS_TABLE = dynamodb.Table("TestTransactions")
 TEST_RESULTS_TABLE = dynamodb.Table("TestResults")  # New table to store test results
 
 def lambda_handler(event, context):
-    # Generate test data with known fraud status (50 test transactions)
+    # Generate test data with known fraud status (10 test transactions)
     test_data = generate_test_data(10)
     
     # Test results using your rule-based fraud detection algorithm
@@ -86,34 +86,35 @@ def generate_test_data(num_transactions):
     
     # Generate both fraudulent and legitimate transactions
     for i in range(num_transactions):
-        # Decide if this will be fraudulent (20% chance)
-        is_fraud = random.random() < 0.2
         
-        # Select merchant based on fraud likelihood
+        # Select merchant, location, price based on fraud likelihood
         if is_fraud:
-            # For fraudulent transactions, bias toward high-risk merchants
-            weighted_merchants = [(m, w) for m, w in merchant_fraud_weights.items()]
-            weighted_merchants.sort(key=lambda x: x[1], reverse=True)
+            # Merchants: biased to high risk
+            weighted_merchants = sorted(merchant_fraud_weights.items(), key=lambda x: x[1], reverse=True)
             merchant = random.choice(weighted_merchants[:5])[0]
+
+            # Amounts: biased to higher risk ranges
+            weighted_amounts = sorted(amount_fraud_weights.items(), key=lambda x: x[1], reverse=True)
+            amt_range = random.choice(weighted_amounts[:2])[0]  # top 2 high-risk ranges
+            amount = Decimal(str(round(random.uniform(*amt_range), 2)))
+
+            # Locations: biased to high-risk cities
+            weighted_locations = sorted(location_fraud_weights.items(), key=lambda x: x[1], reverse=True)
+            location = random.choice(weighted_locations[:5])[0]
         else:
-            # For legitimate transactions, bias toward low-risk merchants
-            weighted_merchants = [(m, w) for m, w in merchant_fraud_weights.items()]
-            weighted_merchants.sort(key=lambda x: x[1])
+            # Merchants: biased to low risk
+            weighted_merchants = sorted(merchant_fraud_weights.items(), key=lambda x: x[1])
             merchant = random.choice(weighted_merchants[:5])[0]
+
+            # Amounts: biased to lower-risk ranges
+            weighted_amounts = sorted(amount_fraud_weights.items(), key=lambda x: x[1])
+            amt_range = random.choice(weighted_amounts[:2])[0]  # bottom 2 low-risk ranges
+            amount = Decimal(str(round(random.uniform(*amt_range), 2)))
+
+            # Locations: biased to low-risk cities
+            weighted_locations = sorted(location_fraud_weights.items(), key=lambda x: x[1])
+            location = random.choice(weighted_locations[:5])[0]
         
-        # Generate appropriate amount and convert to Decimal
-        if is_fraud:
-            amount = Decimal(str(round(random.uniform(800, 5000), 2)))
-        else:
-            amount = Decimal(str(round(random.uniform(10, 700), 2)))
-        
-        # Select appropriate location
-        if is_fraud and random.random() < 0.7:
-            location = random.choice(high_risk_locations)
-        else:
-            location = random.choice(low_risk_locations)
-        
-        # Create the transaction (convert numeric values to Decimal as needed)
         transaction = {
             'TransactionID': f"test_txn_{uuid.uuid4().hex[:10]}",
             'UserID': f"test_user_{i}",
@@ -143,7 +144,6 @@ def test_rule_based_algorithm(test_data):
     false_negatives = 0
     
     for transaction in test_data:
-        # Use your rule-based algorithm
         amount = transaction['Amount']
         location = transaction['Location']
         risk_score = float(transaction['RiskScore'])  # Convert Decimal to float for calculation
@@ -151,13 +151,12 @@ def test_rule_based_algorithm(test_data):
         # Calculate fraud score using your rule-based approach
         location_risk = 30 if location in ["Dubai", "Tokyo", "London"] else 0
         
-        # Convert Decimal amount to float for comparisons
         amount_float = float(amount)
         amount_risk = 40 if amount_float > 500 else (20 if amount_float > 100 else 0)
         fraud_score = (risk_score * 100) + amount_risk + location_risk
         
         # Determine if transaction is flagged as fraud
-        is_flagged_fraud = fraud_score > 80  # Using your threshold
+        is_flagged_fraud = fraud_score > 80
         is_actual_fraud = transaction['IsActualFraud']
         
         # Update counters
