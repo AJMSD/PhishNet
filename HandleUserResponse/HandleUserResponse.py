@@ -57,21 +57,19 @@ def lambda_handler(event, context):
             print(f"Error disabling travel mode: {e}")
             return respond("Something went wrong while disabling travel mode. Please try again.")
 
+    # Interpret user response
+    if sms_body in ['yes', 'fraud']:
+        new_status = "FRAUD"
+    elif sms_body in ['no', 'not fraud']:
+        new_status = "Not Fraud"
+    else:
+        return respond("Please reply YES or NO to verify the transaction. To enable travel mode, reply 'travel - your location'.")
+
     # Handle fraud confirmation responses
     transaction_id = get_latest_pending_transaction(sender)
     if not transaction_id:
         print(f"No pending transaction found for {sender}")
         return respond("No recent fraud alert found for your number.")
-
-    # Interpret user response
-    if sms_body in ['yes', 'fraud']:
-        print(f"User {sender} confirmed transaction {transaction_id} as FRAUD")
-        new_status = "FRAUD"
-    elif sms_body in ['no', 'not fraud']:
-        print(f"User {sender} confirmed transaction {transaction_id} as NOT FRAUD")
-        new_status = "Not Fraud"
-    else:
-        return respond("Please reply YES or NO to verify the transaction. To enable travel mode, reply 'travel - your location'.")
 
     try:
         # Update the Transactions table
@@ -83,13 +81,21 @@ def lambda_handler(event, context):
         )
         print(f"Updated transaction {transaction_id} to '{new_status}'")
 
+        transaction = txn_table.get_item(Key={'TransactionID': transaction_id}).get("Item", {})
+        amount = transaction.get("Amount", "N/A")
+        merchant = transaction.get("Merchant", "Unknown Merchant")
+        location = transaction.get("Location", "Unknown Location")
+
         # Remove the mapping
         map_table.delete_item(
             Key={'PhoneNumber': sender, 'TransactionID': transaction_id}
         )
         print(f"Deleted mapping for {transaction_id}")
-
-        return respond(f"Thanks! Transaction {transaction_id} marked as {new_status}.")
+        
+        return respond(
+            f"Thanks! The transaction for ${amount} at {merchant} in {location} "
+            f"has been marked as {new_status.upper()}."
+        )
     except Exception as e:
         print(f"Error updating records: {e}")
         return respond("Something went wrong. Please try again later.")
@@ -102,7 +108,7 @@ def get_latest_pending_transaction(phone_number):
             Limit=5
         )
         for item in result.get('Items', []):
-            if item.get("Status") == "Pending":
+            if item.get("Status") == "Sent to User":
                 return item['TransactionID']
     except Exception as e:
         print(f"Error querying mapping table: {e}")
