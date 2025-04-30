@@ -6,6 +6,7 @@ from decimal import Decimal
 import datetime
 
 # Connect to your DynamoDB tables
+# Final Code
 dynamodb = boto3.resource('dynamodb')
 TRANSACTIONS_TABLE = dynamodb.Table("TestTransactions")
 TEST_RESULTS_TABLE = dynamodb.Table("TestResults")  # New table to store test results
