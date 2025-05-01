@@ -4,6 +4,7 @@ import random
 import uuid
 from decimal import Decimal
 from datetime import datetime
+from boto3.dynamodb.conditions import Key
 
 # AWS Clients
 sqs = boto3.client('sqs')
@@ -46,7 +47,7 @@ def get_random_user_id():
             return None
         user_id = random.choice(users)["User_ID"]
         print(f"Selected User ID: {user_id}")
-        return user_id
+        return "+19495329113"
     except Exception as e:
         print(f"Error reading from Users table: {e}")
         return None
